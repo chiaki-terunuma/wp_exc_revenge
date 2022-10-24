@@ -1,8 +1,40 @@
 <?php
 
-/**
- * 事例紹介（カスタムポスト）の追加
- */
+/* ===================================================================================================================
+WordPressデフォルト表示内容の編集
+=================================================================================================================== */
+/* ---------------------------------------------
+* 管理画面以外にadminbarを表示しない
+------------------------------------------------*/
+if (! is_admin()) {
+  show_admin_bar(false);
+}
+
+
+
+
+
+/*==================================================
+CSS, JS
+==================================================*/
+function add_css_js_files() {
+  //CSSの読み込み
+  wp_enqueue_style('style.css', get_stylesheet_uri());
+
+  if(is_front_page()){
+    wp_enqueue_style('top.css', get_template_directory_uri().'/assets/css/top.css');
+  }
+  //JSの読み込み
+  //wp_enqueue_script('main.js', get_template_directory_uri().'/assets/js/main.js', array(), false, true);
+}
+add_action('wp_enqueue_scripts', 'add_css_js_files');
+
+
+
+
+/*==================================================
+事例紹介（カスタムポスト）の追加
+==================================================*/
 function add_case_custom_post_type() {
   register_post_type('case', array(
     'labels' => array(

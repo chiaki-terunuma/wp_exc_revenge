@@ -8,3 +8,10 @@ Tags: オンラインショップ,Webサイト
 License: GNU General Public License v2 or later
 License URI: LICENSE
 */
+
+/*===============================================
+* 共通
+================================================*/
+body {
+  margin: 0;
+}
