@@ -8,3 +8,38 @@ PC_KV
   text-align: center;
   padding: 100px 0;
 }
+
+/*==================================================
+PC_CASE
+==================================================*/
+#case {
+  background-color: #ffffff;
+  max-width: 1226px;
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+.case-list {
+  display: flex;
+  list-style: none;
+}
+
+.case-list-item {
+  max-width: calc((100% - 32px) / 3);
+  width: 100%;
+}
+
+.case-list-item + .case-list-item {
+  margin-left: 16px;
+}
+
+.case-list-item__thum {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.case-list-item_contents {
+  background-color: #f5f4e4;
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+}

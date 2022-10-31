@@ -13,5 +13,33 @@ License URI: LICENSE
 * 共通
 ================================================*/
 body {
+  color: #444444;
   margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+h2,
+ul,
+p {
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #444444;
+}
+
+.yellow-button {
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 300px;
+  background-color: #ffd000;
+  border-radius: 60px;
+  margin: 60px auto 0;
+  padding: 20px 0;
+  text-align: center;
 }
