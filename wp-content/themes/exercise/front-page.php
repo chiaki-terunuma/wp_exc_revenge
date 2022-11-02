@@ -4,7 +4,8 @@
     <div class="first-view">KV</div>
   </section>
   <section id="case">
-    <h2>CASE</h2>
+    <h2 class="section-title">Case study</h2>
+    <p class="section-sub-title">事例紹介</p>
     <ul class="case-list">
       <?php
         $case_args = array(
@@ -19,9 +20,14 @@
       ?>
         <li class="case-list-item">
           <a href="<?php the_permalink(); ?>">
-            <img src="<?php echo get_the_post_thumbnail_url($post->ID, '')?>" class="case-list-item__thum"/>
-            <div class="case-list-item_contents">
-              <p><?php the_title();?></p>
+            <div class="case-list-item__thum">
+              <div style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, '')?>')"></div>
+            </div>
+            <div class="case-list-item__contents">
+              <p class="case-list-item__title"><?php the_title();?></p>
+              <p class="case-list-item__text">
+                テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。
+              </p>
             </div>
           </a>
         </li>
