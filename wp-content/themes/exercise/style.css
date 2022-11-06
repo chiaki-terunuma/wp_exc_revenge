@@ -34,6 +34,16 @@ a {
   color: #444444;
 }
 
+.page-wrapper {
+  max-width: 1226px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page-inner {
+  padding: 0 113px;
+}
+
 /* section title */
 .section-title {
   font-family: "Signika", sans-serif;

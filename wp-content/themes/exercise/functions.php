@@ -23,6 +23,8 @@ function add_css_js_files() {
 
   if(is_front_page()){
     wp_enqueue_style('top.css', get_template_directory_uri().'/assets/css/top.css');
+  }else if(is_singular('case')){
+    wp_enqueue_style('case.css', get_template_directory_uri().'/assets/css/case.css');
   }
   //JSの読み込み
   //wp_enqueue_script('main.js', get_template_directory_uri().'/assets/js/main.js', array(), false, true);
