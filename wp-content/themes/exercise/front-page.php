@@ -11,7 +11,6 @@
         $case_args = array(
           'post_type'      => 'case',
           'posts_per_page' => 3,
-          //'order_by'       => 'title',
           'order'          => 'ASC'
         );
         $case_query = new WP_Query($case_args);
@@ -24,9 +23,9 @@
               <div style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, '')?>')"></div>
             </div>
             <div class="case-list-item__contents">
-              <p class="case-list-item__title"><?php the_title();?></p>
+              <p class="case-list-item__title">東京台東区　サトウサンプル</p>
               <p class="case-list-item__text">
-                テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。テキストのみ入れたい。
+                <?php the_title();?>
               </p>
             </div>
           </a>

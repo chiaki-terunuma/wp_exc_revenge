@@ -22,7 +22,6 @@ PC_CASE
 .case-list {
   display: flex;
   margin-top: 60px;
-  list-style: none;
 }
 
 .case-list-item {
@@ -82,4 +81,8 @@ PC_CASE
   font-size: 14px;
   margin-top: 14px;
   line-height: 1.7;
+}
+
+.case-list-item__text br {
+  display: none;
 }

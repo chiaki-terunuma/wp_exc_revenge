@@ -37,6 +37,8 @@ add_action('wp_enqueue_scripts', 'add_css_js_files');
 /*==================================================
 事例紹介（カスタムポスト）の追加
 ==================================================*/
+add_theme_support('post-thumbnails');
+
 function add_case_custom_post_type() {
   register_post_type('case', array(
     'labels' => array(
