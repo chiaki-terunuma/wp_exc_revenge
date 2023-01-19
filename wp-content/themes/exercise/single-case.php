@@ -15,6 +15,10 @@
         <h1 class="case-title"><?php the_title(); ?></h1>
         <div class="case-contents">
           <?php the_content(); ?>
+          <?php echo get_post_meta($post->ID, "case_title", true); ?>,
+          <?php echo get_post_meta($post->ID, "case_description", true); ?>,
+          <?php echo get_post_meta($post->ID, "case_shop_name", true); ?>,
+          <?php echo get_post_meta($post->ID, "case_shop_address", true); ?>
         </div>
       </div>
     </article>
