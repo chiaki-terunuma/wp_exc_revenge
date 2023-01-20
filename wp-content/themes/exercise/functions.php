@@ -74,14 +74,6 @@ function create_custom_fields(){
   //どのページに何のカスタムフィールドを出すかの定義
   if(get_post_type() === 'case'){
     add_meta_box(
-      'case_TDK', //ID　（箱<div>のidに指定される）
-      'TDK', //タイトル
-      'insert_custom_fields', //下で定義した関数①が入る
-      null,
-      'normal',
-    );
-
-    add_meta_box(
       'case_shop', //ID　（箱<div>のidに指定される）
       '店舗情報', //タイトル
       'insert_custom_fields_shop',
@@ -92,16 +84,11 @@ function create_custom_fields(){
 }
 add_action('add_meta_boxes', 'create_custom_fields');
 
-function insert_custom_fields() { //関数①
-  global $post;
-  echo 'Title:<input type="text" name="case_title" value="'.get_post_meta($post->ID, 'case_title', true).'" />';
-  echo 'Description:<input type="text" name="case_description" value="'.get_post_meta($post->ID, 'case_description', true).'" />';
-}
-
 function insert_custom_fields_shop() {
   global $post;
-  echo '店舗名：<input type="text" name="case_shop_name" value="'.get_post_meta($post->ID, 'case_shop_name', true).'" />';
-  echo '店舗住所：<input type="text" name="case_shop_address" value="'.get_post_meta($post->ID, 'case_shop_address', true).'" />';
+  echo '<div style="display: flex; align-items: center;">店舗名：<input type="text" name="case_shop_name" value="'.get_post_meta($post->ID, 'case_shop_name', true).'" /></div>';
+  echo '<div style="display: flex; align-items: center; margin-top: 20px;">店舗住所：<input type="text" name="case_shop_address" value="'.get_post_meta($post->ID, 'case_shop_address', true).'" /></div>';
+  echo '<div style="display: flex; align-items: center; margin-top: 20px;">業種：<input type="text" name="case_shop_type" value="'.get_post_meta($post->ID, 'case_shop_type', true).'" /></div>';
 }
 
 function save_custom_fields($post_id){
@@ -113,36 +100,8 @@ function save_custom_fields($post_id){
   if (isset($_POST['action']) && $_POST['action'] == 'inline-save') {
     return $id;
   }
+
   //保存
-
-  //title
-  if(!empty($_POST['case_title'])){ //書き換えたい値が空じゃない場合
-    update_post_meta(
-      $post_id, //投稿の番号
-      'case_title', //inputのname属性
-      $_POST['case_title'] // 書き換えたい値
-    );
-  }else{ //書き換えたい値が空の場合
-    delete_post_meta(
-      $post_id,
-      'case_title'
-    );
-  }
-
-  //description
-  if(!empty($_POST['case_description'])){ //書き換えたい値が空じゃない場合
-    update_post_meta(
-      $post_id, //投稿の番号
-      'case_description', //inputのname属性
-      $_POST['case_description'] // 書き換えたい値
-    );
-  }else{ //書き換えたい値が空の場合
-    delete_post_meta(
-      $post_id,
-      'case_description'
-    );
-  }
-
   //店舗名
   if(!empty($_POST['case_shop_name'])){ //書き換えたい値が空じゃない場合
     update_post_meta(
@@ -158,16 +117,30 @@ function save_custom_fields($post_id){
   }
 
   //店舗住所
-  if(!empty($_POST['case_shop_address'])){ //書き換えたい値が空じゃない場合
+  if(!empty($_POST['case_shop_address'])){
     update_post_meta(
-      $post_id, //投稿の番号
-      'case_shop_address', //inputのname属性
-      $_POST['case_shop_address'] // 書き換えたい値
+      $post_id,
+      'case_shop_address',
+      $_POST['case_shop_address']
     );
-  }else{ //書き換えたい値が空の場合
+  }else{
     delete_post_meta(
       $post_id,
       'case_shop_address'
+    );
+  }
+
+  //業種
+  if(!empty($_POST['case_shop_type'])){
+    update_post_meta(
+      $post_id,
+      'case_shop_type',
+      $_POST['case_shop_type']
+    );
+  }else{
+    delete_post_meta(
+      $post_id,
+      'case_shop_type'
     );
   }
 }

@@ -12,13 +12,27 @@
             <li>puni</li>
           </ul>
         </div>
+
         <h1 class="case-title"><?php the_title(); ?></h1>
         <div class="case-contents">
           <?php the_content(); ?>
-          <?php echo get_post_meta($post->ID, "case_title", true); ?>,
-          <?php echo get_post_meta($post->ID, "case_description", true); ?>,
-          <?php echo get_post_meta($post->ID, "case_shop_name", true); ?>,
-          <?php echo get_post_meta($post->ID, "case_shop_address", true); ?>
+        </div>
+
+        <div class="case-shop-info">
+        <dl class="case-shop-info-list">
+          <div class="case-shop-info-list-item">
+            <dt>店舗名：</dt>
+            <dd><?php echo get_post_meta($post->ID, "case_shop_name", true); ?></dd>
+          </div>
+          <div class="case-shop-info-list-item">
+            <dt>住所：</dt>
+            <dd><?php echo get_post_meta($post->ID, "case_shop_address", true); ?></dd>
+          </div>
+          <div class="case-shop-info-list-item">
+            <dt>業種：</dt>
+            <dd><?php echo get_post_meta($post->ID, "case_shop_type", true); ?></dd>
+          </div>
+        <dl>
         </div>
       </div>
     </article>

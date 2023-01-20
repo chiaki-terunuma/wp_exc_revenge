@@ -118,3 +118,24 @@ h3 {
   background-color: transparent !important;
   background: linear-gradient(transparent 50%, #feee46 50%);
 }
+
+.case-shop-info {
+  background-color: #f5f4e4;
+  border-radius: 10px;
+}
+
+.case-shop-info-list-item {
+  display: flex;
+}
+
+.case-shop-info-list-item > * {
+  font-size: 14px;
+}
+
+.case-shop-info-list-item > dt {
+  font-weight: bold;
+}
+
+.case-shop-info-list-item > dd {
+  margin-left: 0;
+}
